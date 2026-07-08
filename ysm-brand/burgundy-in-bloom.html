@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Burgundy in Bloom | The YSM Brand Experience — Est. 2026</title>
+<meta name="description" content="Burgundy in Bloom — The YSM Brand Experience's inaugural fine dining evening in Lusaka, Zambia. Saturday, 26 September 2026. Guest arrival 4:30 PM.">
+<meta name="theme-color" content="#c7a253">
+<meta property="og:title" content="Burgundy in Bloom | The YSM Brand Experience">
+<meta property="og:description" content="A quarterly exclusive fine dining experience. One edition. One season. Unforgettable. Lusaka, Zambia — 26 September 2026.">
+<meta property="og:image" content="https://ysm.zingati.app/images/burgundy-in-bloom-flyer.jpeg">
+<meta property="og:site_name" content="The YSM Brand Experience">
+<meta property="og:url" content="https://ysm.zingati.app/burgundy-in-bloom.html">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://ysm.zingati.app/burgundy-in-bloom.html">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+
+<!-- Google Fonts: Playfair Display (display) + Cormorant Garamond (body/serif) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   0. CSS VARIABLES / DESIGN TOKENS
+============================================================ */
+:root{
+  --burgundy: #58111A;
+  --burgundy-dark: #420d13;
+  --burgundy-deeper: #2c080d;
+  --gold: #C5A059;
+  --gold-light: #e6cd97;
+  --gold-soft: rgba(197,160,89,0.35);
+  --cream: #FDFBF7;
+  --cream-dim: #f3ede1;
+  --charcoal: #2A2A2A;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Cormorant Garamond', Georgia, serif;
+  --font-utility: 'Jost', Georgia, sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+
+  --shadow-soft: 0 20px 60px -20px rgba(42,10,15,0.35);
+  --shadow-gold: 0 10px 40px -10px rgba(197,160,89,0.45);
+
+  --ease: cubic-bezier(.22,1,.36,1);
+  --dur: .7s;
+
+  --space: 16px;
+  --container-pad: max(16px, env(safe-area-inset-left));
+  --container-pad-r: max(16px, env(safe-area-inset-right));
+  --dock-h: 72px;
+  --tap: 44px;
+}
+
+/* ============================================================
+   1. RESET & BASE
+============================================================ */
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+}
+html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+body{
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--charcoal);
+  overflow-x:hidden;
+  line-height:1.55;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom: calc(var(--dock-h) + env(safe-area-inset-bottom));
+  -webkit-tap-highlight-color: transparent;
+}
+img{ max-width:100%; height:auto; display:block; }
+a{ color:inherit; text-decoration:none; }
+button{ font-family:inherit; cursor:pointer; border:none; background:none; touch-action:manipulation; }
+input{ font-family:inherit; font-size:16px; } /* 16px+ prevents iOS input zoom */
+h1,h2,h3,h4{ font-family: var(--font-display); font-weight:600; letter-spacing:.01em; text-wrap:balance; }
+.eyebrow{
+  font-family: var(--font-utility);
+  text-transform:uppercase;
+  letter-spacing:.22em;
+  font-size:11px;
+  color: var(--gold);
+  font-weight:500;
+}
+.container{
+  width:100%;
+  max-width:1180px;
+  margin:0 auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad-r);
+}
+section{ position:relative; }
+
+::selection{ background: var(--gold); color: var(--burgundy-dark); }
+
+/* focus states — accessibility */
+a:focus-visible, button:focus-visible, input:focus-visible, .accordion-q:focus-visible{
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   2. SIGNATURE ELEMENT — THE BLOOM DIVIDER
+   A hand-drawn gold vine/flower motif that "grows" via stroke
+   animation. Used once per section as a quiet, recurring signature
+   tying the visual language to "Bloom".
+============================================================ */
+.bloom-divider{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  margin: 34px 0 6px;
+}
+.bloom-divider svg{ width:150px; height:46px; overflow:visible; }
+.bloom-divider path{
+  fill:none;
+  stroke: var(--gold);
+  stroke-width:1.4;
+  stroke-linecap:round;
+  stroke-dasharray: 340;
+  stroke-dashoffset: 340;
+  transition: stroke-dashoffset 1.6s var(--ease);
+}
+.bloom-divider circle{
+  fill: var(--gold);
+  opacity:0;
+  transform-origin:center;
+  transition: opacity .6s ease .9s, transform .6s var(--ease) .9s;
+  transform: scale(0);
+}
+.bloom-divider.in-view path{ stroke-dashoffset:0; }
+.bloom-divider.in-view circle{ opacity:1; transform:scale(1); }
+
+/* ============================================================
+   3. REVEAL ANIMATION UTILITY (IntersectionObserver driven)
+============================================================ */
+.reveal{
+  opacity:0;
+  transform: translateY(36px);
+  transition: opacity 1s var(--ease), transform 1s var(--ease);
+}
+.reveal.in-view{ opacity:1; transform:none; }
+.reveal-stagger > *{ transition-delay: calc(var(--i,0) * 90ms); }
+
+/* ============================================================
+   4. HERO SECTION
+============================================================ */
+.hero{
+  position:relative;
+  min-height:100svh;
+  min-height:100dvh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+  background: var(--burgundy-dark);
+  isolation:isolate;
+  padding:
+    max(72px, env(safe-area-inset-top))
+    0
+    max(88px, calc(env(safe-area-inset-bottom) + 64px));
+}
+.hero-bg{
+  position:absolute; inset:-6%;
+  background-image:
+    linear-gradient(180deg, rgba(44,8,13,0.55) 0%, rgba(44,8,13,0.72) 55%, rgba(44,8,13,0.94) 100%),
+    url('https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=900&q=75');
+  background-size:cover;
+  background-position:center 30%;
+  z-index:-2;
+}
+.hero-noise{
+  position:absolute; inset:0; z-index:-1;
+  background-image: radial-gradient(rgba(197,160,89,0.10) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity:.5;
+  pointer-events:none;
+}
+.hero-particles{ position:absolute; inset:0; pointer-events:none; z-index:0; }
+.particle{
+  position:absolute;
+  bottom:-10px;
+  border-radius:50%;
+  background: var(--gold);
+  opacity:.55;
+  filter: blur(.3px);
+  animation: floatUp linear infinite;
+}
+@keyframes floatUp{
+  0%{ transform: translateY(0) translateX(0); opacity:0; }
+  10%{ opacity:.6; }
+  90%{ opacity:.4; }
+  100%{ transform: translateY(-110vh) translateX(var(--drift,20px)); opacity:0; }
+}
+
+.hero-content{
+  position:relative; z-index:2;
+  padding: 0 max(20px, env(safe-area-inset-left)) 0 max(20px, env(safe-area-inset-right));
+  max-width:900px; width:100%;
+}
+.hero-brand{
+  font-family: var(--font-utility);
+  color: var(--gold-light);
+  letter-spacing:.22em;
+  font-size:11px;
+  text-transform:uppercase;
+  opacity:0;
+  animation: fadeUp 1s var(--ease) .2s forwards;
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+}
+.ysm-mark{ width:28px; height:20px; color: var(--gold); }
+.ysm-wordmark{
+  font-family: var(--font-display);
+  font-size:1rem;
+  letter-spacing:.03em;
+  color: var(--cream);
+  text-transform:none;
+}
+.ysm-wordmark b{ font-weight:600; }
+.ysm-sub{ font-size:10px; letter-spacing:.28em; color: var(--gold-light); }
+.ysm-est{ font-size:9px; letter-spacing:.22em; color: rgba(253,251,247,0.45); margin-top:2px; }
+.footer-mark{ width:34px; height:26px; color: var(--gold); margin:0 auto 14px; }
+.hero-title{
+  color: var(--cream);
+  font-size: clamp(2.35rem, 11vw, 6.4rem);
+  line-height:1.05;
+  margin: 16px 0 10px;
+  letter-spacing:.01em;
+  opacity:0;
+  animation: fadeUp 1.1s var(--ease) .45s forwards;
+}
+.hero-title em{
+  font-style:italic;
+  color: var(--gold);
+}
+.hero-subtitle{
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: clamp(1.05rem, 4.2vw, 1.5rem);
+  color: var(--cream-dim);
+  max-width:28ch;
+  margin-inline:auto;
+  opacity:0;
+  animation: fadeUp 1.1s var(--ease) .7s forwards;
+}
+.hero-wait-note{
+  max-width:42rem;
+  margin:18px auto 0;
+  color: rgba(253,251,247,0.72);
+  font-family: var(--font-utility);
+  font-size:12px;
+  line-height:1.7;
+  letter-spacing:.04em;
+  opacity:0;
+  animation: fadeUp 1.1s var(--ease) .82s forwards;
+}
+.hero-meta{
+  display:flex; flex-direction:column; gap:10px; align-items:center;
+  margin-top:20px;
+  font-family: var(--font-utility);
+  font-size:12.5px;
+  letter-spacing:.04em;
+  color: var(--gold-light);
+  opacity:0;
+  animation: fadeUp 1.1s var(--ease) .9s forwards;
+}
+.hero-meta span{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  max-width:100%; text-align:center; line-height:1.35;
+}
+
+.gold-divider{
+  width:90px; height:2px;
+  margin: 30px auto;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  position:relative;
+  opacity:0;
+  animation: fadeUp 1s var(--ease) 1.05s forwards;
+}
+.gold-divider::before{
+  content:''; position:absolute; left:50%; top:50%;
+  width:8px; height:8px; border-radius:50%;
+  background: var(--gold);
+  transform: translate(-50%,-50%) rotate(45deg);
+  box-shadow: 0 0 12px var(--gold);
+}
+.hero-actions{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+}
+
+.btn-luxury{
+  position:relative;
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  min-height: var(--tap);
+  padding: 16px 28px;
+  width: min(100%, 320px);
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold) 55%, #a9803f);
+  color: var(--burgundy-dark);
+  font-family: var(--font-utility);
+  font-weight:600;
+  letter-spacing:.12em;
+  font-size:12.5px;
+  text-transform:uppercase;
+  overflow:hidden;
+  box-shadow: var(--shadow-gold);
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+  opacity:0;
+  animation: fadeUp 1.1s var(--ease) 1.2s forwards;
+  touch-action:manipulation;
+}
+.btn-luxury:hover{ transform: translateY(-3px); box-shadow: 0 16px 50px -10px rgba(197,160,89,0.6); }
+.btn-luxury:active{ transform: translateY(0) scale(.98); }
+.btn-luxury.alt{
+  background: rgba(253,251,247,0.1);
+  color: var(--cream);
+  border:1px solid rgba(253,251,247,0.32);
+  box-shadow:none;
+  animation-delay:1.32s;
+}
+.btn-luxury.alt:hover{ background: rgba(253,251,247,0.16); box-shadow:none; }
+.btn-luxury.alt::after{ display:none; }
+.btn-luxury::after{
+  content:'';
+  position:absolute; top:0; left:-60%;
+  width:40%; height:100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.65), transparent);
+  transform: skewX(-20deg);
+  animation: shimmer 3.2s ease-in-out infinite;
+}
+@keyframes shimmer{
+  0%{ left:-60%; } 45%{ left:130%; } 100%{ left:130%; }
+}
+
+.scroll-cue{
+  position:absolute;
+  bottom: max(18px, env(safe-area-inset-bottom));
+  left:50%; transform:translateX(-50%);
+  z-index:2;
+  color: var(--gold-light);
+  width: var(--tap); height: var(--tap);
+  display:flex; align-items:center; justify-content:center;
+  opacity:0;
+  animation: fadeUp 1s var(--ease) 1.5s forwards, bob 2.4s ease-in-out 2.5s infinite;
+}
+.scroll-cue svg{ width:22px; height:22px; }
+@media (max-width: 639px){
+  .scroll-cue{ display:none; } /* dock + CTA already guide next step */
+}
+
+@keyframes fadeUp{
+  from{ opacity:0; transform: translateY(22px); }
+  to{ opacity:1; transform:none; }
+}
+@keyframes bob{
+  0%,100%{ transform: translateX(-50%) translateY(0); }
+  50%{ transform: translateX(-50%) translateY(8px); }
+}
+
+/* ============================================================
+   5. COUNTDOWN — floating card overlapping hero
+============================================================ */
+.countdown-wrap{
+  position:relative;
+  z-index:5;
+  margin-top:-48px;
+  display:flex; justify-content:center;
+  padding: 0 max(12px, env(safe-area-inset-left)) 0 max(12px, env(safe-area-inset-right));
+}
+.countdown-card{
+  width:100%;
+  max-width:640px;
+  background: linear-gradient(160deg, #ffffff, var(--cream));
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft), 0 0 0 1px rgba(197,160,89,0.25);
+  padding: 20px 12px;
+  display:grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  align-items:center;
+  gap:4px;
+  position:relative;
+}
+.countdown-card::before{
+  content:''; position:absolute; inset:-1px;
+  border-radius: inherit;
+  padding:1px;
+  background: linear-gradient(135deg, var(--gold), transparent 40%, transparent 60%, var(--gold));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  pointer-events:none;
+  opacity:.6;
+}
+.cd-unit{ text-align:center; min-width:0; }
+.cd-num{
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 7vw, 3rem);
+  color: var(--burgundy);
+  font-weight:700;
+  font-variant-numeric: tabular-nums;
+  transition: transform .35s var(--ease), opacity .35s var(--ease);
+  line-height:1.1;
+}
+.cd-num.tick{ transform: translateY(-6px); opacity:.4; }
+.cd-label{
+  font-family: var(--font-utility);
+  font-size:9.5px; letter-spacing:.14em; text-transform:uppercase;
+  color: var(--charcoal); opacity:.65; margin-top:4px;
+}
+.cd-sep{ color: var(--gold); font-size:1.15rem; opacity:.55; text-align:center; padding-bottom:14px; }
+.cd-ended{
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--burgundy);
+  font-size: clamp(1.3rem,3vw,1.8rem);
+  text-align:center;
+}
+
+/* ============================================================
+   6. SECTION HEADERS (shared)
+============================================================ */
+.sec-head{ text-align:center; max-width:680px; margin:0 auto 32px; }
+.sec-head h2{ font-size: clamp(1.75rem, 6.5vw, 3rem); color: var(--burgundy); margin-top:10px; line-height:1.15; }
+.sec-head p{ color:#5a5a5a; font-size:1.05rem; margin-top:12px; line-height:1.5; }
+
+.section-pad{ padding: 64px 0; }
+.bg-cream{ background: var(--cream); }
+.bg-dim{ background: var(--cream-dim); }
+.bg-charcoal{ background: var(--charcoal); color: var(--cream); }
+.bg-burgundy{ background: linear-gradient(160deg, var(--burgundy), var(--burgundy-dark)); color: var(--cream); }
+
+/* ============================================================
+   7. ABOUT
+============================================================ */
+.about-card{
+  background:#fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 22px;
+  display:grid; grid-template-columns: 1fr; gap:24px;
+  align-items:center;
+}
+.about-card img{ order:-1; border-radius: var(--radius-md); box-shadow: var(--shadow-soft); width:100%; aspect-ratio:4/3; object-fit:cover; }
+.about-card img.about-flyer{ aspect-ratio:2/3; object-fit:contain; background:var(--burgundy-deeper); }
+.about-text p{ font-size:1.05rem; color:#4a4a4a; margin-bottom:14px; }
+.about-list{ list-style:none; display:grid; gap:12px; margin-top:18px; }
+.about-list li{ display:flex; gap:12px; align-items:flex-start; font-family: var(--font-utility); font-size:14px; letter-spacing:.01em; line-height:1.45; }
+.about-list li svg{ flex:none; width:20px; height:20px; color:var(--gold); margin-top:2px; }
+
+/* ============================================================
+   8. GALLERY
+============================================================ */
+.gallery-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:10px;
+}
+.gallery-item{
+  position:relative;
+  border-radius: 12px;
+  overflow:hidden;
+  box-shadow: var(--shadow-soft);
+  cursor:zoom-in;
+  aspect-ratio: 1 / 1;
+  transform-origin:center;
+  -webkit-user-select:none; user-select:none;
+}
+.gallery-item img{
+  width:100%; height:100%; object-fit:cover;
+  transition: transform .8s var(--ease);
+}
+.gallery-item:hover img{ transform: scale(1.09); }
+.gallery-item::after{
+  content:'';
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, transparent 50%, rgba(44,8,13,0.78));
+  opacity:1; transition: opacity .5s ease;
+}
+.gallery-cap{
+  position:absolute; left:10px; right:10px; bottom:10px; z-index:2;
+  color:#fff; font-family: var(--font-utility); font-size:11px; letter-spacing:.04em;
+  opacity:1; transform:none;
+  transition: all .5s ease;
+  line-height:1.3;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+}
+
+/* Lightbox */
+.lightbox{
+  position:fixed; inset:0; z-index:300;
+  background: rgba(20,4,6,0.94);
+  display:flex; align-items:center; justify-content:center;
+  padding: max(16px, env(safe-area-inset-top)) 12px max(16px, env(safe-area-inset-bottom));
+  opacity:0; visibility:hidden;
+  transition: opacity .4s ease;
+  touch-action: pan-y;
+}
+.lightbox.active{ opacity:1; visibility:visible; }
+.lightbox img{
+  max-width:min(94vw, 920px);
+  max-height:min(72dvh, 82vh);
+  width:auto; height:auto;
+  border-radius:10px; box-shadow:0 30px 80px rgba(0,0,0,.5);
+  object-fit:contain;
+}
+.lightbox-close, .lightbox-nav{
+  position:absolute; color:var(--gold-light); font-size:28px;
+  background: rgba(255,255,255,0.12); border-radius:50%;
+  width: var(--tap); height: var(--tap);
+  min-width: var(--tap); min-height: var(--tap);
+  display:flex; align-items:center; justify-content:center;
+  transition: background .3s ease;
+  touch-action:manipulation;
+}
+.lightbox-close:hover, .lightbox-nav:hover{ background: rgba(255,255,255,0.2); }
+.lightbox-close{
+  top: max(12px, env(safe-area-inset-top));
+  right: max(12px, env(safe-area-inset-right));
+}
+.lightbox-nav.prev{ left:8px; top:50%; transform:translateY(-50%); }
+.lightbox-nav.next{ right:8px; top:50%; transform:translateY(-50%); }
+@media (max-width: 639px){
+  .lightbox-nav.prev, .lightbox-nav.next{
+    top:auto; bottom: max(18px, env(safe-area-inset-bottom));
+    transform:none;
+  }
+  .lightbox-nav.prev{ left: max(16px, env(safe-area-inset-left)); }
+  .lightbox-nav.next{ right: max(16px, env(safe-area-inset-right)); }
+  .lightbox img{ max-height: min(64dvh, 70vh); margin-bottom:56px; }
+}
+
+/* ============================================================
+   9. BOOKING FORM — glassmorphism
+============================================================ */
+.booking-section{
+  position:relative;
+  background:
+    linear-gradient(160deg, rgba(44,8,13,0.92), rgba(88,17,26,0.94)),
+    url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=70');
+  background-size:cover; background-position:center;
+}
+.booking-grid{
+  display:grid; grid-template-columns: 1fr; gap:28px; align-items:start;
+}
+.booking-intro h2{ color:var(--cream); font-size: clamp(1.7rem, 6vw, 2.6rem); }
+.booking-intro p{ color: var(--cream-dim); font-size:1.05rem; margin-top:14px; }
+.booking-price-note{
+  margin-top:20px; padding:16px 18px; border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.06); border:1px solid rgba(197,160,89,0.35);
+  font-family: var(--font-utility); font-size:13px; letter-spacing:.02em; color:var(--gold-light); line-height:1.45;
+}
+.glass-card{
+  background: rgba(255,255,255,0.10);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: var(--radius-lg);
+  padding: 20px 16px;
+  box-shadow: 0 25px 70px -20px rgba(0,0,0,0.5);
+}
+.field{ margin-bottom:18px; }
+.field label{
+  display:block; font-family: var(--font-utility); font-size:11.5px;
+  letter-spacing:.12em; text-transform:uppercase; color: var(--gold-light); margin-bottom:8px;
+}
+.field input[type="text"], .field input[type="tel"]{
+  width:100%; min-height: var(--tap); padding:14px 16px; border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.94);
+  border: 1px solid transparent;
+  color: var(--charcoal);
+  font-size:16px;
+  transition: box-shadow .3s ease, border-color .3s ease;
+  -webkit-appearance:none; appearance:none;
+}
+.field input:focus{ outline:none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(197,160,89,0.3); }
+.field .err{ color:#ffd3d3; font-size:13px; font-family:var(--font-utility); margin-top:7px; display:none; }
+.field.invalid input{ border-color:#ff9d9d; }
+.field.invalid .err{ display:block; }
+
+.stepper{
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  background: rgba(255,255,255,0.94); border-radius: 999px; padding:8px 10px; width:100%; max-width:240px;
+}
+.stepper button{
+  width: var(--tap); height: var(--tap); border-radius:50%;
+  background: var(--burgundy); color: var(--cream);
+  font-size:1.35rem; display:flex; align-items:center; justify-content:center;
+  transition: transform .25s ease, background .25s ease;
+  touch-action:manipulation;
+}
+.stepper button:hover{ background: var(--burgundy-dark); transform: scale(1.06); }
+.stepper button:active{ transform: scale(.96); }
+.stepper button:disabled{ opacity:.35; cursor:not-allowed; transform:none; }
+.stepper .count{ font-family: var(--font-display); font-size:1.4rem; min-width:34px; text-align:center; color:var(--burgundy); }
+
+.total-row{
+  display:flex; justify-content:space-between; align-items:baseline; gap:12px;
+  padding-top:16px; margin-top:8px; border-top:1px dashed rgba(255,255,255,0.3);
+}
+.total-row .label{ font-family: var(--font-utility); letter-spacing:.08em; color: var(--gold-light); font-size:12px; text-transform:uppercase; }
+.total-row .amount{ font-family: var(--font-display); font-size: clamp(1.5rem, 6vw, 2rem); color:#fff; }
+.total-row .amount span{ font-size:1rem; color: var(--gold-light); }
+
+.segmented{ display:flex; gap:10px; }
+.segmented button{
+  flex:1; min-height: var(--tap); padding:12px 8px; border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.12); color: var(--cream);
+  border: 1px solid rgba(255,255,255,0.28);
+  font-family: var(--font-utility); letter-spacing:.03em; font-size:13px;
+  transition: all .3s ease;
+  touch-action:manipulation;
+}
+.segmented button.active{
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: var(--burgundy-dark); border-color: transparent;
+  box-shadow: var(--shadow-gold);
+}
+
+.momo-card{
+  margin-top:16px;
+  border-radius: var(--radius-md);
+  background: rgba(0,0,0,0.22);
+  border: 1px solid rgba(197,160,89,0.4);
+  padding: 0 16px;
+  max-height:0; opacity:0; overflow:hidden;
+  transition: max-height .6s var(--ease), opacity .5s ease, padding .6s ease;
+}
+.momo-card.open{ max-height:1100px; opacity:1; padding:18px 16px; }
+.momo-row{
+  display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px;
+  padding:12px 12px; background: rgba(255,255,255,0.08); border-radius:10px; margin-bottom:10px;
+}
+.momo-row .op{ font-family: var(--font-utility); font-size:12px; color: var(--gold-light); letter-spacing:.05em; }
+.momo-row .num{ font-family: var(--font-display); font-size:1.1rem; color:#fff; }
+.copy-btn{
+  min-height:36px; padding:8px 14px; border-radius:999px; background: rgba(197,160,89,0.2);
+  color: var(--gold-light); font-family: var(--font-utility); font-size:12px; letter-spacing:.06em;
+  border:1px solid rgba(197,160,89,0.5); transition: background .25s ease;
+  touch-action:manipulation;
+}
+.copy-btn:hover{ background: rgba(197,160,89,0.35); }
+.copy-btn.copied{ background: var(--gold); color: var(--burgundy-dark); }
+.qr-placeholder{
+  width:120px; height:120px; margin: 14px auto 6px; border-radius:12px;
+  background:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.12) 0 8px, transparent 8px 16px),
+    rgba(255,255,255,0.06);
+  border: 1px dashed rgba(197,160,89,0.5);
+  display:flex; align-items:center; justify-content:center;
+  font-family: var(--font-utility); font-size:11px; color: var(--gold-light); text-align:center; padding:8px;
+}
+.momo-instructions{ font-size:1rem; color: var(--cream-dim); margin-top:10px; line-height:1.55; }
+
+.submit-btn{
+  width:100%; margin-top:8px;
+  min-height:52px; padding:16px 18px; border-radius:999px;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold) 55%, #a9803f);
+  color: var(--burgundy-dark); font-family: var(--font-utility); font-weight:600;
+  letter-spacing:.1em; text-transform:uppercase; font-size:13px;
+  display:flex; align-items:center; justify-content:center; gap:12px;
+  box-shadow: var(--shadow-gold);
+  transition: transform .3s var(--ease), opacity .3s ease;
+  touch-action:manipulation;
+}
+.submit-btn:hover{ transform: translateY(-2px); }
+.submit-btn:active{ transform: scale(.98); }
+.submit-btn:disabled{ opacity:.75; cursor:wait; transform:none; }
+.spinner{
+  width:18px; height:18px; border-radius:50%;
+  border:2.5px solid rgba(66,13,19,0.3); border-top-color: var(--burgundy-dark);
+  animation: spin .8s linear infinite;
+  display:none;
+}
+.spinner.show{ display:inline-block; }
+@keyframes spin{ to{ transform: rotate(360deg); } }
+
+.form-note{ font-size:13px; color: rgba(255,255,255,.55); font-family: var(--font-utility); text-align:center; margin-top:14px; }
+
+/* ============================================================
+   10. SCHEDULE / TIMELINE
+============================================================ */
+.timeline{ max-width:720px; margin:0 auto; position:relative; }
+.timeline::before{
+  content:''; position:absolute; left:18px; top:6px; bottom:6px; width:2px;
+  background: linear-gradient(180deg, var(--gold), transparent 95%);
+}
+.tl-item{
+  position:relative; padding-left:56px; margin-bottom:28px;
+}
+.tl-item:last-child{ margin-bottom:0; }
+.tl-dot{
+  position:absolute; left:4px; top:2px;
+  width:30px; height:30px; border-radius:50%;
+  background: #fff; border:2px solid var(--gold);
+  display:flex; align-items:center; justify-content:center;
+  color: var(--burgundy); font-family:var(--font-display); font-weight:700; font-size:13px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+.tl-time{ font-family: var(--font-utility); font-size:11.5px; letter-spacing:.1em; color: var(--gold); text-transform:uppercase; }
+.tl-item h4{ font-size:1.15rem; color: var(--burgundy); margin:5px 0 6px; }
+.tl-item p{ color:#5a5a5a; font-size:1rem; line-height:1.5; }
+
+/* ============================================================
+   11. DRESS CODE
+============================================================ */
+.dress-grid{ display:grid; grid-template-columns: 1fr; gap:28px; align-items:center; }
+.dress-swatches{ display:flex; flex-wrap:wrap; gap:14px; margin:20px 0; justify-content:flex-start; }
+.swatch{ text-align:center; font-family: var(--font-utility); font-size:11px; letter-spacing:.06em; color:#666; }
+.swatch .dot{ width:48px; height:48px; border-radius:50%; margin:0 auto 8px; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08), var(--shadow-soft); }
+.dress-grid img{ border-radius: var(--radius-lg); box-shadow: var(--shadow-soft); width:100%; }
+.dress-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+.tag{
+  padding:9px 14px; border-radius:999px; border:1px solid var(--gold);
+  font-family: var(--font-utility); font-size:12px; letter-spacing:.04em; color: var(--burgundy);
+}
+
+/* ============================================================
+   12. VENUE
+============================================================ */
+.venue-card{
+  background:#fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-soft);
+  overflow:hidden; display:grid; grid-template-columns: 1fr;
+}
+.venue-map iframe{ width:100%; height:100%; min-height:240px; border:0; filter: grayscale(.15) sepia(.08); }
+.venue-info{ padding: 22px 18px; }
+.venue-info h3{ font-size:1.4rem; color: var(--burgundy); margin-bottom:14px; }
+.venue-detail{ display:flex; gap:12px; margin-bottom:16px; align-items:flex-start; }
+.venue-detail svg{ flex:none; width:22px; height:22px; color: var(--gold); margin-top:3px; }
+.venue-detail strong{ display:block; font-family: var(--font-utility); font-size:12px; letter-spacing:.06em; text-transform:uppercase; color: var(--charcoal); margin-bottom:3px; }
+.venue-detail span{ color:#5a5a5a; font-size:.98rem; }
+.directions-btn{
+  margin-top:8px; display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  min-height: var(--tap); width:100%;
+  padding:14px 22px; border-radius:999px; background: var(--burgundy); color:#fff;
+  font-family: var(--font-utility); font-size:12.5px; letter-spacing:.08em; text-transform:uppercase;
+  transition: background .3s ease, transform .3s ease;
+  touch-action:manipulation;
+}
+.directions-btn:hover{ background: var(--burgundy-dark); transform: translateY(-2px); }
+
+/* ============================================================
+   13. FAQ ACCORDION
+============================================================ */
+.faq-list{ max-width:760px; margin:0 auto; display:grid; gap:10px; }
+.accordion{
+  background:#fff; border-radius: var(--radius-md); box-shadow: 0 8px 30px -14px rgba(42,10,15,0.18);
+  overflow:hidden; border:1px solid rgba(197,160,89,0.25);
+}
+.accordion-q{
+  width:100%; display:flex; justify-content:space-between; align-items:center;
+  min-height: var(--tap);
+  padding:16px 16px; text-align:left;
+  font-family: var(--font-display); font-size:1.02rem; color: var(--burgundy);
+  line-height:1.3; gap:12px;
+  touch-action:manipulation;
+}
+.accordion-q .plus{
+  flex:none; width:22px; height:22px; position:relative; margin-left:8px;
+}
+.accordion-q .plus::before, .accordion-q .plus::after{
+  content:''; position:absolute; background: var(--gold); border-radius:2px;
+  transition: transform .4s var(--ease), opacity .4s ease;
+}
+.accordion-q .plus::before{ left:0; top:50%; width:100%; height:2px; transform: translateY(-50%); }
+.accordion-q .plus::after{ top:0; left:50%; width:2px; height:100%; transform: translateX(-50%); }
+.accordion.open .plus::after{ transform: translateX(-50%) rotate(90deg); opacity:0; }
+.accordion-a{
+  max-height:0; overflow:hidden; transition: max-height .5s var(--ease);
+}
+.accordion-a p{ padding: 0 16px 18px; color:#5a5a5a; font-size:1rem; line-height:1.5; }
+.accordion.open .accordion-a{ max-height:480px; }
+
+/* ============================================================
+   14. TESTIMONIALS
+============================================================ */
+.testi-grid{ display:grid; grid-template-columns: 1fr; gap:14px; }
+.testi-card{
+  background:#fff; border-radius: var(--radius-md); box-shadow: var(--shadow-soft);
+  padding:24px 18px; text-align:center;
+}
+.testi-card img{ width:56px; height:56px; border-radius:50%; margin:0 auto 14px; object-fit:cover; box-shadow: 0 0 0 3px var(--gold-soft); }
+.stars{ color: var(--gold); font-size:14px; letter-spacing:2px; margin-bottom:12px; }
+.testi-card p{ color:#5a5a5a; font-style:italic; font-size:1.02rem; line-height:1.45; }
+.testi-name{ margin-top:14px; font-family: var(--font-utility); font-size:12px; letter-spacing:.06em; text-transform:uppercase; color: var(--burgundy); }
+
+/* ============================================================
+   15. CONTACT
+============================================================ */
+.contact-grid{ display:grid; grid-template-columns: 1fr; gap:12px; text-align:center; }
+.contact-card{
+  background: rgba(255,255,255,0.05); border:1px solid rgba(197,160,89,0.3);
+  border-radius: var(--radius-md); padding:22px 16px;
+  transition: transform .35s var(--ease), background .35s ease;
+  min-height: var(--tap);
+}
+.contact-card:hover{ transform: translateY(-4px); background: rgba(255,255,255,0.09); }
+.contact-card svg{ width:28px; height:28px; color: var(--gold); margin:0 auto 12px; }
+.contact-card h4{ font-size:1.1rem; margin-bottom:6px; color:#fff; }
+.contact-card a, .contact-card span{ color: var(--cream-dim); font-size:1rem; word-break:break-word; }
+.contact-card a{ display:inline-block; min-height: var(--tap); line-height: var(--tap); }
+.social-row{ display:flex; gap:14px; justify-content:center; margin-top:28px; }
+.social-row a{
+  width: var(--tap); height: var(--tap); border-radius:50%; border:1px solid rgba(197,160,89,0.4);
+  display:flex; align-items:center; justify-content:center; color: var(--gold-light);
+  transition: background .3s ease, transform .3s ease;
+  touch-action:manipulation;
+}
+.social-row a:hover{ background: rgba(197,160,89,0.15); transform: translateY(-3px); }
+
+/* ============================================================
+   16. FOOTER
+============================================================ */
+footer{
+  background: var(--burgundy-deeper); color: var(--cream-dim);
+  padding: 48px 0 max(28px, env(safe-area-inset-bottom));
+  text-align:center;
+}
+.footer-brand{ font-family: var(--font-display); font-size:1.35rem; color:#fff; letter-spacing:.02em; }
+.footer-tag{ font-family: var(--font-utility); font-size:11px; letter-spacing:.18em; color: var(--gold); text-transform:uppercase; margin-top:8px; }
+.footer-gold-line{ width:60px; height:1px; background: var(--gold); margin:22px auto; }
+.footer-copy{ font-size:13px; opacity:.6; font-family: var(--font-utility); line-height:1.5; }
+.back-top{
+  margin-top:22px; display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  min-height: var(--tap); padding:0 8px;
+  font-family: var(--font-utility); font-size:12px; letter-spacing:.1em; text-transform:uppercase;
+  color: var(--gold-light); border-bottom:1px solid transparent; transition: border-color .3s ease;
+}
+.back-top:hover{ border-color: var(--gold-light); }
+
+/* ============================================================
+   17. FLOATING BUTTONS + MOBILE DOCK
+============================================================ */
+.fab-whatsapp{
+  position:fixed;
+  right: max(14px, env(safe-area-inset-right));
+  bottom: calc(var(--dock-h) + 14px + env(safe-area-inset-bottom));
+  z-index:160;
+  width:54px; height:54px; border-radius:50%;
+  background:#25D366; color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: 0 12px 30px rgba(37,211,102,0.45);
+  touch-action:manipulation;
+}
+.fab-whatsapp::before{
+  content:''; position:absolute; inset:0; border-radius:50%;
+  border:2px solid #25D366; animation: pulse 2.2s ease-out infinite;
+}
+@keyframes pulse{
+  0%{ transform: scale(1); opacity:.7; }
+  100%{ transform: scale(1.7); opacity:0; }
+}
+.fab-whatsapp svg{ width:26px; height:26px; position:relative; z-index:1; }
+
+.fab-top{
+  position:fixed;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: calc(var(--dock-h) + 78px + env(safe-area-inset-bottom));
+  z-index:160;
+  width: var(--tap); height: var(--tap); border-radius:50%;
+  background: var(--burgundy); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: var(--shadow-soft);
+  opacity:0; visibility:hidden; transform: translateY(10px);
+  transition: all .4s var(--ease);
+  touch-action:manipulation;
+}
+.fab-top.show{ opacity:1; visibility:visible; transform:none; }
+.fab-top svg{ width:20px; height:20px; }
+
+/* Sticky mobile reserve dock */
+.mobile-dock{
+  position:fixed; left:0; right:0; bottom:0; z-index:170;
+  display:flex; align-items:center; gap:12px;
+  padding:
+    10px max(14px, env(safe-area-inset-right))
+    max(10px, env(safe-area-inset-bottom))
+    max(14px, env(safe-area-inset-left));
+  min-height: var(--dock-h);
+  background: rgba(44, 8, 13, 0.94);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border-top: 1px solid rgba(197,160,89,0.35);
+  box-shadow: 0 -12px 40px rgba(20,4,6,0.35);
+  transform: translateY(110%);
+  transition: transform .4s var(--ease);
+}
+.mobile-dock.show{ transform: translateY(0); }
+.mobile-dock-meta{ flex:1; min-width:0; color: var(--cream); }
+.mobile-dock-meta .label{
+  font-family: var(--font-utility); font-size:10px; letter-spacing:.14em;
+  text-transform:uppercase; color: var(--gold-light); display:block; margin-bottom:2px;
+}
+.mobile-dock-meta .price{
+  font-family: var(--font-display); font-size:1.15rem; line-height:1.15; white-space:nowrap;
+  overflow:hidden; text-overflow:ellipsis;
+}
+.mobile-dock-cta{
+  flex:none;
+  display:inline-flex; align-items:center; justify-content:center;
+  min-height: var(--tap); min-width:132px;
+  padding: 0 18px; border-radius:999px;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold) 55%, #a9803f);
+  color: var(--burgundy-dark);
+  font-family: var(--font-utility); font-weight:600; font-size:12px;
+  letter-spacing:.1em; text-transform:uppercase;
+  box-shadow: var(--shadow-gold);
+  touch-action:manipulation;
+}
+.mobile-dock-cta:active{ transform: scale(.98); }
+
+/* ============================================================
+   18. MOBILE-FIRST PROGRESSIVE ENHANCEMENT
+============================================================ */
+@media (min-width: 640px){
+  body{ font-size:18px; padding-bottom:0; }
+  :root{ --radius-lg: 28px; --container-pad: 24px; --container-pad-r: 24px; }
+  .eyebrow{ letter-spacing:.28em; font-size:12px; }
+  .section-pad{ padding: 88px 0; }
+  .sec-head{ margin-bottom:42px; }
+  .hero-meta{ flex-direction:row; flex-wrap:wrap; gap:18px 28px; font-size:13.5px; }
+  .hero-subtitle{ max-width:none; }
+  .hero-wait-note{ font-size:13px; }
+  .hero-actions{ flex-direction:row; flex-wrap:wrap; }
+  .btn-luxury{ width:auto; padding:18px 40px; font-size:13px; }
+  .countdown-wrap{ margin-top:-60px; }
+  .countdown-card{
+    display:flex; flex-wrap:wrap; justify-content:center;
+    gap: clamp(14px,3vw,36px); padding: 28px 28px;
+  }
+  .cd-sep{ font-size:1.5rem; padding-bottom:0; }
+  .cd-label{ font-size:11px; letter-spacing:.2em; }
+  .gallery-grid{ gap:14px; }
+  .gallery-item{ aspect-ratio: 4/5; }
+  .gallery-cap{ left:14px; right:14px; bottom:12px; font-size:12.5px; }
+  .glass-card{ padding: 28px 24px; }
+  .testi-grid{ grid-template-columns: 1fr 1fr; gap:18px; }
+  .venue-map iframe{ min-height:300px; }
+  .directions-btn{ width:auto; }
+  .timeline::before{ left:29px; }
+  .tl-item{ padding-left:78px; margin-bottom:36px; }
+  .tl-dot{ left:14px; width:32px; height:32px; }
+  .mobile-dock{ display:none; }
+  .fab-whatsapp{
+    right:22px; bottom:22px; width:60px; height:60px;
+  }
+  .fab-top{ right:22px; bottom:92px; }
+}
+
+@media (min-width: 900px){
+  body{ font-size:19px; }
+  .section-pad{ padding: 110px 0; }
+  .about-card{
+    grid-template-columns: 1.05fr .95fr; gap:48px;
+    padding: clamp(30px,4vw,64px);
+  }
+  .about-card img{ order:0; aspect-ratio:auto; }
+  .about-text p{ font-size:1.15rem; }
+  .booking-grid{ grid-template-columns: .9fr 1.1fr; gap:48px; }
+  .glass-card{ padding: clamp(28px,3vw,46px); }
+  .dress-grid{ grid-template-columns: 1fr 1fr; gap:48px; }
+  .venue-card{ grid-template-columns: 1fr 1fr; }
+  .venue-map iframe{ min-height:380px; }
+  .venue-info{ padding: clamp(28px,4vw,48px); }
+  .gallery-grid{ grid-template-columns: repeat(3, 1fr); gap:18px; }
+  .gallery-item::after{ opacity:0; }
+  .gallery-item:hover::after{ opacity:1; }
+  .gallery-cap{ opacity:0; transform: translateY(8px); }
+  .gallery-item:hover .gallery-cap{ opacity:1; transform:none; }
+  .testi-grid{ grid-template-columns: repeat(3,1fr); gap:24px; }
+  .contact-grid{ grid-template-columns: repeat(3,1fr); gap:22px; }
+  .hero-bg{
+    background-image:
+      linear-gradient(180deg, rgba(44,8,13,0.55) 0%, rgba(44,8,13,0.72) 55%, rgba(44,8,13,0.94) 100%),
+      url('https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=1600&q=80');
+  }
+  .hero{ padding: 0; }
+  .accordion-q{ padding:22px 26px; font-size:1.12rem; }
+  .accordion-a p{ padding: 0 26px 24px; }
+}
+
+@media (min-width: 1100px){
+  .container{ padding-left:28px; padding-right:28px; }
+}
+
+/* Very small phones */
+@media (max-width: 360px){
+  .hero-title{ font-size:2.1rem; }
+  .cd-num{ font-size:1.35rem; }
+  .cd-label{ font-size:8.5px; letter-spacing:.08em; }
+  .mobile-dock-cta{ min-width:118px; font-size:11px; padding:0 14px; }
+}
+
+/* Prefer reduced motion on mobile for battery/comfort */
+@media (prefers-reduced-motion: reduce){
+  .particle, .fab-whatsapp::before, .btn-luxury::after{ animation:none !important; }
+  .reveal{ opacity:1; transform:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HERO SECTION
+============================================================ -->
+<header class="hero" id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-noise"></div>
+  <div class="hero-particles" id="particles"></div>
+
+  <div class="hero-content">
+    <p class="hero-brand">
+      <svg class="ysm-mark" viewBox="0 0 40 30" fill="currentColor" aria-hidden="true">
+        <path d="M20 2c1.5 3 1.5 7 0 10-1.5-3-1.5-7 0-10z"/>
+        <path d="M20 2c4 1.5 7 4.8 8.5 8.7-4-.3-7.7-2.4-9.8-5.7 0-1 .5-2.2 1.3-3z"/>
+        <path d="M20 2c-4 1.5-7 4.8-8.5 8.7 4-.3 7.7-2.4 9.8-5.7 0-1-.5-2.2-1.3-3z"/>
+        <path d="M28.5 10.7c2.4 3 3.3 6.9 2.6 10.8-3.2-2-5.4-5.4-6-9.2 1-.7 2.2-1.3 3.4-1.6z"/>
+        <path d="M11.5 10.7c-2.4 3-3.3 6.9-2.6 10.8 3.2-2 5.4-5.4 6-9.2-1-.7-2.2-1.3-3.4-1.6z"/>
+      </svg>
+      <span class="ysm-wordmark">The <b>YSM</b> Brand</span>
+      <span class="ysm-sub">Experience</span>
+      <span class="ysm-est">Est. 2026 &nbsp;·&nbsp; Edition No. 1</span>
+    </p>
+    <h1 class="hero-title">Burgundy <em>in</em> Bloom</h1>
+    <p class="hero-subtitle">An Intimate Luxury Fine Dining Experience</p>
+    <p class="hero-wait-note">This private invite link is the first stop. Enter the experience room to view merch, gallery previews, invite details, booking, and payment.</p>
+    <div class="hero-meta">
+      <span>&#128198; Saturday, 26 September 2026</span>
+      <span>&#128337; Guest Arrival 4:30 PM · Experience Begins 5:00 PM</span>
+      <span>&#128205; Lusaka, Zambia</span>
+    </div>
+    <div class="gold-divider" role="presentation"></div>
+    <div class="hero-actions">
+      <a href="family-experience.html" class="btn-luxury">Enter Experience Room</a>
+      <a href="family-experience.html#booking" class="btn-luxury alt">Reserve &amp; Pay</a>
+    </div>
+  </div>
+
+  <a href="#countdown" class="scroll-cue" aria-label="Scroll to countdown">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 4v15M6 13l6 6 6-6"/></svg>
+  </a>
+</header>
+
+<!-- ============================================================
+     COUNTDOWN SECTION
+============================================================ -->
+<section id="countdown" class="countdown-wrap">
+  <div class="countdown-card reveal" id="countdownCard">
+    <div class="cd-unit"><div class="cd-num" id="cd-days">00</div><div class="cd-label">Days</div></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-unit"><div class="cd-num" id="cd-hours">00</div><div class="cd-label">Hours</div></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-unit"><div class="cd-num" id="cd-mins">00</div><div class="cd-label">Minutes</div></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-unit"><div class="cd-num" id="cd-secs">00</div><div class="cd-label">Seconds</div></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT SECTION
+============================================================ -->
+<section class="section-pad bg-cream" id="about">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow">The Occasion</p>
+      <h2>What Is Burgundy in Bloom</h2>
+      <p>The inaugural edition of The YSM Brand Experience — a quarterly gathering, one edition per season, designed to be savoured rather than repeated.</p>
+    </div>
+    <div class="bloom-divider" aria-hidden="true"><svg viewBox="0 0 150 46"><path d="M5 30 Q40 5 75 25 Q110 45 145 20"/><circle cx="75" cy="25" r="3.4"/></svg></div>
+
+    <div class="about-card reveal">
+      <div class="about-text">
+        <p class="eyebrow" style="color:var(--burgundy)">More Than Fine Dining</p>
+        <p>Burgundy in Bloom is more than a meal — it's an extension of The YSM Brand, built for those who appreciate refined hospitality, thoughtful dining, and meaningful experiences. As nature blooms, so does a new chapter for YSM.</p>
+        <p>The YSM Brand Experience takes place only four times a year. Each edition carries its own carefully curated theme, with limited guest access to preserve the intimacy, exclusivity, and personalised hospitality that define it. Every gathering is unique — every season tells a different story.</p>
+        <ul class="about-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg> A beautifully curated welcome package, delivered ahead of the evening</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h16M4 8a4 4 0 004 4h8a4 4 0 004-4M12 12v9"/></svg> Five thoughtfully crafted courses, plated tableside</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V5l11-2v13M9 9l11-2"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg> Carefully selected wine pairings and refreshments throughout</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg> Interactive entertainment and genuine connection among guests</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l2.9 6.3L21 9l-5 4.6L17.5 21 12 17.3 6.5 21 8 13.6 3 9l6.1-.7z"/></svg> A meaningful farewell gift to remember the evening by</li>
+        </ul>
+      </div>
+      <img class="about-flyer" src="images/burgundy-in-bloom-flyer.jpeg" alt="Official Burgundy in Bloom invitation flyer with date, arrival time, investment, dress code, and inclusions" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EXPERIENCE GALLERY
+============================================================ -->
+<section class="section-pad bg-dim" id="gallery">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow">A Glimpse</p>
+      <h2>The Experience Gallery</h2>
+      <p>Moments from evenings past — tap any image to view it in full.</p>
+    </div>
+    <div class="gallery-grid reveal-stagger">
+      <!-- gallery items populated with data-caption for lightbox -->
+      <div class="gallery-item reveal" style="--i:0" data-cap="The Head Table">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=700&q=80" alt="Candlelit fine dining table">
+        <span class="gallery-cap">The Head Table</span>
+      </div>
+      <div class="gallery-item reveal" style="--i:1" data-cap="Tasting Menu">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=700&q=80" alt="Gourmet plated dish">
+        <span class="gallery-cap">Tasting Menu</span>
+      </div>
+      <div class="gallery-item reveal" style="--i:2" data-cap="Wine Pairing">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=700&q=80" alt="Pouring red wine into a glass">
+        <span class="gallery-cap">Wine Pairing</span>
+      </div>
+      <div class="gallery-item reveal" style="--i:3" data-cap="The Room">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=700&q=80" alt="Luxurious dining room interior">
+        <span class="gallery-cap">The Room</span>
+      </div>
+      <div class="gallery-item reveal" style="--i:4" data-cap="Golden Hour">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=700&q=80" alt="Elegant restaurant lighting">
+        <span class="gallery-cap">Golden Hour</span>
+      </div>
+      <div class="gallery-item reveal" style="--i:5" data-cap="Guests in Bloom">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1529543544277-6b62c9f8e968?auto=format&fit=crop&w=700&q=80" alt="Guests toasting at an elegant dinner">
+        <span class="gallery-cap">Guests in Bloom</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox markup -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lightbox-close" id="lbClose" aria-label="Close image viewer">&times;</button>
+  <button class="lightbox-nav prev" id="lbPrev" aria-label="Previous image">&#10094;</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lightbox-nav next" id="lbNext" aria-label="Next image">&#10095;</button>
+</div>
+
+<!-- ============================================================
+     BOOKING FORM
+============================================================ -->
+<section class="section-pad booking-section" id="booking">
+  <div class="container">
+    <div class="booking-grid">
+      <div class="booking-intro reveal">
+        <p class="eyebrow">Reserve Your Interest</p>
+        <h2>Secure Your Seat at the Table</h2>
+        <p>Spaces are limited, so early reservation is highly encouraged. Complete the form below to send your interest directly to us on WhatsApp — a member of the YSM team will follow up with payment details.</p>
+        <div class="booking-price-note">Investment: K4,500 per guest &nbsp;·&nbsp; Bookings are only confirmed upon full payment &nbsp;·&nbsp; Limited seating available</div>
+      </div>
+
+      <form class="glass-card reveal" id="bookingForm" novalidate>
+        <div class="field" id="nameField">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" placeholder="e.g. Chanda Mwansa" autocomplete="name" required>
+          <p class="err">Please enter your full name.</p>
+        </div>
+
+        <div class="field" id="phoneField">
+          <label for="whatsapp">WhatsApp Number</label>
+          <input type="tel" id="whatsapp" name="whatsapp" placeholder="e.g. 0971234567" autocomplete="tel" required>
+          <p class="err">Enter a valid Zambian number (e.g. 0971234567 or +260971234567).</p>
+        </div>
+
+        <div class="field">
+          <label>Number of Guests</label>
+          <div class="stepper">
+            <button type="button" id="minusBtn" aria-label="Decrease guest count">&minus;</button>
+            <span class="count" id="guestCount">1</span>
+            <button type="button" id="plusBtn" aria-label="Increase guest count">&plus;</button>
+          </div>
+        </div>
+
+        <div class="total-row">
+          <span class="label">Investment</span>
+          <span class="amount">K<span id="totalPrice">4,500</span> <span>ZMW</span></span>
+        </div>
+
+        <div class="field" style="margin-top:26px;">
+          <label>Payment Method</label>
+          <div class="segmented" id="paymentSeg">
+            <button type="button" class="active" data-method="instructions">Request Instructions</button>
+            <button type="button" data-method="momo">Mobile Money</button>
+          </div>
+        </div>
+
+        <div class="momo-card" id="momoCard">
+          <div class="momo-row">
+            <span class="op">MTN Mobile Money</span>
+            <span class="num" id="mtnNum">0975 228 899</span>
+            <button type="button" class="copy-btn" data-copy="0975228899">Copy</button>
+          </div>
+          <div class="momo-row">
+            <span class="op">Airtel Money</span>
+            <span class="num" id="airtelNum">0975 228 899</span>
+            <button type="button" class="copy-btn" data-copy="0975228899">Copy</button>
+          </div>
+
+          <div class="qr-placeholder" aria-hidden="true">Scan QR<br>to Pay</div>
+
+          <div class="field" style="margin-top:14px;">
+            <label for="txnId">Transaction ID</label>
+            <input type="text" id="txnId" placeholder="e.g. MP240912.1345.A12345">
+          </div>
+          <p class="momo-instructions">Send the exact amount above to either number, then enter your transaction ID and tap Confirm on WhatsApp — a booking reference will follow within the hour.</p>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <span id="submitLabel">Confirm on WhatsApp</span>
+          <span class="spinner" id="submitSpinner"></span>
+        </button>
+        <p class="form-note">This form does not secure your place — reservations are confirmed only once full payment has been received.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EVENT SCHEDULE
+============================================================ -->
+<section class="section-pad bg-cream" id="schedule">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow">The Evening</p>
+      <h2>Event Schedule</h2>
+      <p>A carefully paced evening, from arrival to closing toast.</p>
+    </div>
+    <div class="bloom-divider" aria-hidden="true"><svg viewBox="0 0 150 46"><path d="M5 30 Q40 5 75 25 Q110 45 145 20"/><circle cx="75" cy="25" r="3.4"/></svg></div>
+
+    <div class="timeline">
+      <div class="tl-item reveal"><div class="tl-dot">1</div><div class="tl-time">4:30 PM</div><h4>Guest Arrival</h4><p>Guests are welcomed and seated at the candlelit table.</p></div>
+      <div class="tl-item reveal"><div class="tl-dot">2</div><div class="tl-time">5:00 PM</div><h4>Welcome Package</h4><p>The experience begins with a signature welcome and aperitif.</p></div>
+      <div class="tl-item reveal"><div class="tl-dot">3</div><div class="tl-time">5:30 PM</div><h4>Dinner</h4><p>Five thoughtfully crafted courses are served, each paired with wine.</p></div>
+      <div class="tl-item reveal"><div class="tl-dot">4</div><div class="tl-time">7:30 PM</div><h4>Networking</h4><p>Conversation flows freely between courses of dessert wine.</p></div>
+      <div class="tl-item reveal"><div class="tl-dot">5</div><div class="tl-time">8:15 PM</div><h4>Entertainment</h4><p>Interactive entertainment sets the tone for the evening's close.</p></div>
+      <div class="tl-item reveal"><div class="tl-dot">6</div><div class="tl-time">8:45 PM</div><h4>Photography</h4><p>A private photographer captures portraits and candid moments.</p></div>
+      <div class="tl-item reveal"><div class="tl-dot">7</div><div class="tl-time">9:15 PM</div><h4>Closing &amp; Farewell Gift</h4><p>A final toast and a meaningful gift mark the end of the evening.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DRESS CODE
+============================================================ -->
+<section class="section-pad bg-dim" id="dresscode">
+  <div class="container">
+    <div class="dress-grid">
+      <div class="reveal">
+        <p class="eyebrow">Dress Code</p>
+        <h2 style="color:var(--burgundy); font-size:clamp(1.9rem,3.6vw,2.6rem); margin-top:10px;">Burgundy in Bloom</h2>
+        <p style="color:#5a5a5a; margin-top:14px; font-size:1.15rem;">Our dress code is our theme. Come dressed in the richness of burgundy and the beauty of spring in bloom — tailored silhouettes in rich, refined tones.</p>
+        <div class="dress-swatches">
+          <div class="swatch"><div class="dot" style="background:var(--burgundy)"></div>Burgundy</div>
+          <div class="swatch"><div class="dot" style="background:#111"></div>Black</div>
+          <div class="swatch"><div class="dot" style="background:var(--gold)"></div>Gold</div>
+        </div>
+        <div class="dress-tags">
+          <span class="tag">Cocktail Dress</span>
+          <span class="tag">Tailored Suit</span>
+          <span class="tag">Evening Gown</span>
+          <span class="tag">Statement Accessories</span>
+        </div>
+      </div>
+      <img class="reveal" src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49889?auto=format&fit=crop&w=800&q=80" alt="Elegant evening wear in dark tones" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     VENUE
+============================================================ -->
+<section class="section-pad bg-cream" id="venue">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Venue Information</p>
+      <h2>Shared Upon Confirmation</h2>
+      <p>To preserve the exclusivity, privacy, and intimate nature of The YSM Brand Experience, the venue location is shared only with guests whose reservations have been fully confirmed through payment.</p>
+    </div>
+    <div class="venue-card reveal">
+      <div class="venue-map">
+        <iframe src="https://www.google.com/maps?q=Lusaka,Zambia&output=embed" loading="lazy" title="General map of Lusaka, Zambia" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="venue-info">
+        <h3>A Private Setting, Lusaka</h3>
+        <div class="venue-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11a7 7 0 1114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+          <div><strong>Location</strong><span>Lusaka, Zambia — exact address shared privately once your reservation is confirmed</span></div>
+        </div>
+        <div class="venue-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h16M4 8a4 4 0 004 4h8a4 4 0 004-4M12 12v9"/></svg>
+          <div><strong>Why we keep it private</strong><span>This allows us to create a seamless, secure, and personalised experience for every guest from the moment they arrive</span></div>
+        </div>
+        <div class="venue-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l2.9 6.3L21 9l-5 4.6L17.5 21 12 17.3 6.5 21 8 13.6 3 9l6.1-.7z"/></svg>
+          <div><strong>Getting the details</strong><span>Confirmed guests receive full venue, parking, and arrival information directly via WhatsApp ahead of the evening</span></div>
+        </div>
+        <a class="directions-btn" href="https://wa.me/260975228899?text=Hi%2C%20I%27ve%20confirmed%20my%20reservation%20for%20Burgundy%20in%20Bloom%20—%20could%20I%20get%20the%20venue%20details%3F" target="_blank" rel="noopener">
+          Confirmed Guest? Get Venue Details
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+============================================================ -->
+<section class="section-pad bg-dim" id="faq">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Good to Know</p>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="accordion">
+        <button class="accordion-q" aria-expanded="false">Is parking available?<span class="plus"></span></button>
+        <div class="accordion-a"><p>Yes. Parking and full arrival details are shared privately with every guest once their reservation is confirmed.</p></div>
+      </div>
+      <div class="accordion">
+        <button class="accordion-q" aria-expanded="false">What is the cancellation policy?<span class="plus"></span></button>
+        <div class="accordion-a"><p>Reservations are only confirmed once full payment has been received. For any cancellation questions, please message us directly on WhatsApp.</p></div>
+      </div>
+      <div class="accordion">
+        <button class="accordion-q" aria-expanded="false">Will there be photography?<span class="plus"></span></button>
+        <div class="accordion-a"><p>Yes, a private photographer will capture the evening as part of the experience.</p></div>
+      </div>
+      <div class="accordion">
+        <button class="accordion-q" aria-expanded="false">What should I wear?<span class="plus"></span></button>
+        <div class="accordion-a"><p>Dress in the spirit of Burgundy in Bloom — elegant evening wear in burgundy, black, or gold.</p></div>
+      </div>
+      <div class="accordion">
+        <button class="accordion-q" aria-expanded="false">What time should I arrive?<span class="plus"></span></button>
+        <div class="accordion-a"><p>Guest arrival is 4:30 PM, with the experience beginning at 5:00 PM sharp.</p></div>
+      </div>
+      <div class="accordion">
+        <button class="accordion-q" aria-expanded="false">How do I secure my reservation?<span class="plus"></span></button>
+        <div class="accordion-a"><p>Completing the form below does not secure your place — reservations are confirmed only once full payment has been received via Mobile Money.</p></div>
+      </div>
+      <div class="accordion">
+        <button class="accordion-q" aria-expanded="false">What payment methods are accepted?<span class="plus"></span></button>
+        <div class="accordion-a"><p>We accept advance payment via MTN Mobile Money and Airtel Money to +260 975 228 899.</p></div>
+      </div>
+      <div class="accordion">
+        <button class="accordion-q" aria-expanded="false">How often does The YSM Brand Experience happen?<span class="plus"></span></button>
+        <div class="accordion-a"><p>Only four times a year. Burgundy in Bloom is our inaugural edition, launching this September.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TESTIMONIALS
+============================================================ -->
+<section class="section-pad bg-cream" id="testimonials">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow">From Past Guests</p>
+      <h2>What Guests Are Saying</h2>
+    </div>
+    <div class="testi-grid reveal-stagger">
+      <div class="testi-card reveal" style="--i:0">
+        <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=200&q=80" alt="Portrait of a past guest" loading="lazy">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"An unforgettable evening — every course, every detail, felt intentional. Truly a night in bloom."</p>
+        <div class="testi-name">Natasha B.</div>
+      </div>
+      <div class="testi-card reveal" style="--i:1">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="Portrait of a past guest" loading="lazy">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"The intimacy of such a small gathering made it feel like a private dinner party, not an event."</p>
+        <div class="testi-name">Kondwani M.</div>
+      </div>
+      <div class="testi-card reveal" style="--i:2">
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80" alt="Portrait of a past guest" loading="lazy">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"Worth every kwacha. The YSM Brand knows how to make an evening feel luxurious."</p>
+        <div class="testi-name">Chileshe T.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+============================================================ -->
+<section class="section-pad bg-burgundy" id="contact">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Get in Touch</p>
+      <h2 style="color:#fff;">Contact the Organizer</h2>
+    </div>
+    <div class="contact-grid reveal-stagger">
+      <div class="contact-card reveal" style="--i:0">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.9.6 2.8a2 2 0 01-.5 2.1L8 9.9a16 16 0 006 6l1.3-1.2a2 2 0 012.1-.5c.9.3 1.8.5 2.8.6a2 2 0 011.8 2.1z"/></svg>
+        <h4>Phone</h4>
+        <a href="tel:+260975228899">0975 228 899</a>
+      </div>
+      <div class="contact-card reveal" style="--i:1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.4 8.4 0 01-8.9 8.4 8.6 8.6 0 01-3.9-1L3 20l1.2-5A8.4 8.4 0 1121 11.5z"/></svg>
+        <h4>WhatsApp</h4>
+        <a href="https://wa.me/260975228899" target="_blank" rel="noopener">0975 228 899</a>
+      </div>
+      <div class="contact-card reveal" style="--i:2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        <h4>Instagram</h4>
+        <a href="https://www.instagram.com/theysmexperience/" target="_blank" rel="noopener">@theysmexperience</a>
+      </div>
+    </div>
+    <div class="social-row reveal">
+      <a href="https://www.instagram.com/theysmexperience/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+      <a href="https://www.facebook.com/theysmbrand" target="_blank" rel="noopener" aria-label="Facebook"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 8h2V4h-2a4 4 0 00-4 4v3H9v4h2v7h4v-7h3l1-4h-4V8a1 1 0 011-1z"/></svg></a>
+      <a href="https://www.theysmbrand.com" target="_blank" rel="noopener" aria-label="The YSM Brand website"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18 14 14 0 010-18z"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer>
+  <div class="container">
+    <svg class="footer-mark" viewBox="0 0 40 30" fill="currentColor" aria-hidden="true">
+      <path d="M20 2c1.5 3 1.5 7 0 10-1.5-3-1.5-7 0-10z"/>
+      <path d="M20 2c4 1.5 7 4.8 8.5 8.7-4-.3-7.7-2.4-9.8-5.7 0-1 .5-2.2 1.3-3z"/>
+      <path d="M20 2c-4 1.5-7 4.8-8.5 8.7 4-.3 7.7-2.4 9.8-5.7 0-1-.5-2.2-1.3-3z"/>
+      <path d="M28.5 10.7c2.4 3 3.3 6.9 2.6 10.8-3.2-2-5.4-5.4-6-9.2 1-.7 2.2-1.3 3.4-1.6z"/>
+      <path d="M11.5 10.7c-2.4 3-3.3 6.9-2.6 10.8 3.2-2 5.4-5.4 6-9.2-1-.7-2.2-1.3-3.4-1.6z"/>
+    </svg>
+    <div class="footer-brand">The YSM Brand Experience</div>
+    <div class="footer-tag">Burgundy in Bloom &nbsp;·&nbsp; Est. 2026</div>
+    <div class="footer-gold-line"></div>
+    <p class="footer-copy" style="font-style:italic;">"Where fine dining meets community."</p>
+    <p class="footer-copy" style="margin-top:6px;">&copy; 2026 The YSM Brand Experience. Proudly Zambian.</p>
+    <p class="footer-copy" style="margin-top:14px;">An extension of <a href="https://www.theysmbrand.com" target="_blank" rel="noopener" style="color:var(--gold-light); border-bottom:1px solid rgba(197,160,89,0.4);">The YSM Brand</a></p>
+    <a href="#hero" class="back-top">Back to Top &uarr;</a>
+  </div>
+</footer>
+
+<!-- ============================================================
+     FLOATING BUTTONS
+============================================================ -->
+<a class="fab-whatsapp" href="https://wa.me/260975228899?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Burgundy%20in%20Bloom." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1120 12a8 8 0 01-8 8zm4.4-5.9c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.3.1-.5l.4-.5c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5s-.6-1.5-.8-2c-.2-.5-.4-.4-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2 0 1.3.9 2.6 1.1 2.8.1.2 1.8 2.8 4.4 3.8.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
+</a>
+
+<button class="fab-top" id="fabTop" aria-label="Scroll back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<!-- Mobile-first sticky reserve dock -->
+<div class="mobile-dock" id="mobileDock" role="region" aria-label="Quick reservation">
+  <div class="mobile-dock-meta">
+    <span class="label">26 Sept · K4,500 / guest</span>
+    <span class="price">Burgundy in Bloom</span>
+  </div>
+  <a class="mobile-dock-cta" href="family-experience.html">Enter</a>
+</div>
+
+<script>
+/* ============================================================
+   1. HERO PARTICLES + PARALLAX
+============================================================ */
+(function(){
+  const wrap = document.getElementById('particles');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isMobile = window.innerWidth < 640;
+  const count = reduceMotion ? 0 : (isMobile ? 8 : 26);
+  for(let i=0;i<count;i++){
+    const p = document.createElement('span');
+    p.className = 'particle';
+    const size = Math.random()*4+2;
+    p.style.width = size+'px';
+    p.style.height = size+'px';
+    p.style.left = Math.random()*100+'%';
+    p.style.setProperty('--drift', (Math.random()*80-40)+'px');
+    p.style.animationDuration = (Math.random()*10+10)+'s';
+    p.style.animationDelay = (Math.random()*10)+'s';
+    wrap.appendChild(p);
+  }
+
+  // Parallax only on larger screens / when motion is OK
+  if(!isMobile && !reduceMotion){
+    const heroBg = document.getElementById('heroBg');
+    const hero = document.getElementById('hero');
+    window.addEventListener('scroll', function(){
+      const y = window.scrollY;
+      if(y < hero.offsetHeight + 200){
+        heroBg.style.transform = 'translateY(' + (y*0.25) + 'px)';
+      }
+    }, {passive:true});
+  }
+})();
+
+/* ============================================================
+   2. COUNTDOWN TIMER
+============================================================ */
+(function(){
+  // Event date: Saturday 26 September 2026, 17:00 Zambia time (CAT, UTC+2) — Experience Begins
+  const eventDate = new Date('2026-09-26T17:00:00+02:00').getTime();
+  const els = {
+    days: document.getElementById('cd-days'),
+    hours: document.getElementById('cd-hours'),
+    mins: document.getElementById('cd-mins'),
+    secs: document.getElementById('cd-secs')
+  };
+  const card = document.getElementById('countdownCard');
+
+  function setVal(el, val){
+    const str = String(val).padStart(2,'0');
+    if(el.textContent !== str){
+      el.classList.add('tick');
+      setTimeout(()=>{ el.textContent = str; el.classList.remove('tick'); }, 160);
+    }
+  }
+
+  function tick(){
+    const now = Date.now();
+    const diff = eventDate - now;
+    if(diff <= 0){
+      card.innerHTML = '<div class="cd-ended">The Event Has Begun.</div>';
+      clearInterval(timer);
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    setVal(els.days, d);
+    setVal(els.hours, h);
+    setVal(els.mins, m);
+    setVal(els.secs, s);
+  }
+  tick();
+  const timer = setInterval(tick, 1000);
+})();
+
+/* ============================================================
+   3. INTERSECTION OBSERVER — REVEALS + BLOOM DIVIDERS
+============================================================ */
+(function(){
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in-view');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold:0.15 });
+
+  document.querySelectorAll('.reveal, .bloom-divider').forEach(el=> io.observe(el));
+})();
+
+/* ============================================================
+   4. GALLERY LIGHTBOX (with swipe support)
+============================================================ */
+(function(){
+  const items = Array.from(document.querySelectorAll('.gallery-item'));
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  let current = 0;
+
+  function open(i){
+    current = i;
+    const img = items[i].querySelector('img');
+    lbImg.src = img.src.replace('w=700','w=1400');
+    lbImg.alt = img.alt;
+    lightbox.classList.add('active');
+  }
+  function close(){ lightbox.classList.remove('active'); }
+  function next(){ open((current+1) % items.length); }
+  function prev(){ open((current-1+items.length) % items.length); }
+
+  items.forEach((item,i)=> item.addEventListener('click', ()=> open(i)));
+  document.getElementById('lbClose').addEventListener('click', close);
+  document.getElementById('lbNext').addEventListener('click', next);
+  document.getElementById('lbPrev').addEventListener('click', prev);
+  lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) close(); });
+  document.addEventListener('keydown', (e)=>{
+    if(!lightbox.classList.contains('active')) return;
+    if(e.key==='Escape') close();
+    if(e.key==='ArrowRight') next();
+    if(e.key==='ArrowLeft') prev();
+  });
+
+  // swipe support
+  let touchStartX = 0;
+  lightbox.addEventListener('touchstart', (e)=>{ touchStartX = e.changedTouches[0].screenX; }, {passive:true});
+  lightbox.addEventListener('touchend', (e)=>{
+    const dx = e.changedTouches[0].screenX - touchStartX;
+    if(Math.abs(dx) > 50){ dx < 0 ? next() : prev(); }
+  }, {passive:true});
+})();
+
+/* ============================================================
+   5. BOOKING FORM — stepper, pricing, payment toggle, validation
+============================================================ */
+(function(){
+  const PRICE = 4500;
+  const MAX_GUESTS = 8;
+  let guests = 1;
+  const guestCountEl = document.getElementById('guestCount');
+  const totalPriceEl = document.getElementById('totalPrice');
+  const minusBtn = document.getElementById('minusBtn');
+  const plusBtn = document.getElementById('plusBtn');
+
+  function renderGuests(){
+    guestCountEl.textContent = guests;
+    totalPriceEl.textContent = (guests*PRICE).toLocaleString('en-US');
+    minusBtn.disabled = guests <= 1;
+    plusBtn.disabled = guests >= MAX_GUESTS;
+  }
+  minusBtn.addEventListener('click', ()=>{ if(guests>1){ guests--; renderGuests(); } });
+  plusBtn.addEventListener('click', ()=>{ if(guests<MAX_GUESTS){ guests++; renderGuests(); } });
+  renderGuests();
+
+  // Payment method segmented control
+  const segButtons = document.querySelectorAll('#paymentSeg button');
+  const momoCard = document.getElementById('momoCard');
+  let paymentMethod = 'instructions';
+  segButtons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      segButtons.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      paymentMethod = btn.dataset.method;
+      momoCard.classList.toggle('open', paymentMethod === 'momo');
+    });
+  });
+
+  // Copy buttons
+  document.querySelectorAll('.copy-btn').forEach(btn=>{
+    btn.addEventListener('click', async ()=>{
+      const val = btn.dataset.copy;
+      try{
+        await navigator.clipboard.writeText(val);
+      }catch(e){
+        const ta = document.createElement('textarea');
+        ta.value = val; document.body.appendChild(ta); ta.select();
+        document.execCommand('copy'); document.body.removeChild(ta);
+      }
+      const original = btn.textContent;
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(()=>{ btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+    });
+  });
+
+  // Zambian phone number validation: 09xxxxxxxx, 07xxxxxxxx, +2609xxxxxxxx, +2607xxxxxxxx
+  function validatePhone(raw){
+    const cleaned = raw.replace(/[\s-]/g,'');
+    const pattern = /^(?:\+260|0)([79]\d{8})$/;
+    return pattern.test(cleaned);
+  }
+  function formatPhone(raw){
+    const cleaned = raw.replace(/[\s-]/g,'');
+    const m = cleaned.match(/^(?:\+260|0)([79]\d{8})$/);
+    if(!m) return raw;
+    return '+260' + m[1];
+  }
+
+  const form = document.getElementById('bookingForm');
+  const nameField = document.getElementById('nameField');
+  const phoneField = document.getElementById('phoneField');
+  const nameInput = document.getElementById('fullName');
+  const phoneInput = document.getElementById('whatsapp');
+  const submitBtn = document.getElementById('submitBtn');
+  const submitLabel = document.getElementById('submitLabel');
+  const submitSpinner = document.getElementById('submitSpinner');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    let valid = true;
+
+    if(nameInput.value.trim().length < 2){
+      nameField.classList.add('invalid'); valid = false;
+    } else nameField.classList.remove('invalid');
+
+    if(!validatePhone(phoneInput.value.trim())){
+      phoneField.classList.add('invalid'); valid = false;
+    } else phoneField.classList.remove('invalid');
+
+    if(!valid) return;
+
+    // Disable + spinner
+    submitBtn.disabled = true;
+    submitLabel.textContent = 'Opening WhatsApp…';
+    submitSpinner.classList.add('show');
+
+    const bookingRef = 'YSM-BIB-' + Math.random().toString(36).slice(2,8).toUpperCase();
+    const formattedPhone = formatPhone(phoneInput.value.trim());
+    const total = (guests*PRICE).toLocaleString('en-US');
+    const txnId = document.getElementById('txnId').value.trim();
+    const methodLabel = paymentMethod === 'momo' ? 'Mobile Money' : 'Payment Instructions Requested';
+    const timestamp = new Date().toLocaleString('en-GB', { dateStyle:'medium', timeStyle:'short' });
+
+    let message =
+`*BURGUNDY IN BLOOM — Reservation Request*
+The YSM Brand Experience
+
+Booking Reference: ${bookingRef}
+Event Date: Saturday, 26 September 2026
+Guest Arrival: 4:30 PM · Experience Begins: 5:00 PM
+
+Guest Name: ${nameInput.value.trim()}
+Phone: ${formattedPhone}
+Number of Guests: ${guests}
+Investment: K${total} ZMW
+Payment Method: ${methodLabel}`;
+
+    if(paymentMethod === 'momo' && txnId){
+      message += `\nTransaction ID: ${txnId}`;
+    }
+
+    message += `\nSubmitted: ${timestamp}
+
+I'd like to confirm this reservation — please advise on next steps. Thank you.`;
+
+    const waUrl = 'https://wa.me/260975228899?text=' + encodeURIComponent(message);
+
+    setTimeout(()=>{
+      window.open(waUrl, '_blank');
+      submitBtn.disabled = false;
+      submitLabel.textContent = 'Confirm on WhatsApp';
+      submitSpinner.classList.remove('show');
+    }, 900);
+  });
+})();
+
+/* ============================================================
+   6. FAQ ACCORDION
+============================================================ */
+(function(){
+  document.querySelectorAll('.accordion-q').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const acc = btn.parentElement;
+      const wasOpen = acc.classList.contains('open');
+      document.querySelectorAll('.accordion').forEach(a=>{
+        a.classList.remove('open');
+        a.querySelector('.accordion-q').setAttribute('aria-expanded','false');
+      });
+      if(!wasOpen){
+        acc.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+})();
+
+/* ============================================================
+   7. SCROLL-TO-TOP + MOBILE DOCK
+============================================================ */
+(function(){
+  const fabTop = document.getElementById('fabTop');
+  const dock = document.getElementById('mobileDock');
+  const booking = document.getElementById('booking');
+  const mq = window.matchMedia('(max-width: 639px)');
+
+  function updateChrome(){
+    const y = window.scrollY;
+    fabTop.classList.toggle('show', y > 700);
+
+    if(!dock || !mq.matches){
+      if(dock) dock.classList.remove('show');
+      return;
+    }
+    // Show after hero, hide while booking section is in view
+    let bookingVisible = false;
+    if(booking){
+      const r = booking.getBoundingClientRect();
+      bookingVisible = r.top < window.innerHeight * 0.72 && r.bottom > window.innerHeight * 0.25;
+    }
+    dock.classList.toggle('show', y > 220 && !bookingVisible);
+  }
+
+  window.addEventListener('scroll', updateChrome, {passive:true});
+  window.addEventListener('resize', updateChrome, {passive:true});
+  updateChrome();
+  fabTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+})();
+
+/* ============================================================
+   8. PREVENT iOS FOCUS JUMP + lock body when lightbox open
+============================================================ */
+(function(){
+  const lightbox = document.getElementById('lightbox');
+  if(!lightbox) return;
+  const obs = new MutationObserver(()=>{
+    document.body.style.overflow = lightbox.classList.contains('active') ? 'hidden' : '';
+  });
+  obs.observe(lightbox, { attributes:true, attributeFilter:['class'] });
+})();
+</script>
+</body>
+</html>
