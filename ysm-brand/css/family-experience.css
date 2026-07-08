@@ -26,7 +26,7 @@
     background: rgba(255, 255, 255, 0.22);
 }
 
-/* Family Club nav pill */
+/* Family Experience nav pill */
 .nav-family {
     background: linear-gradient(135deg, rgba(199, 162, 83, 0.22), rgba(199, 162, 83, 0.08)) !important;
     color: #7a5a1e !important;
@@ -70,6 +70,7 @@
     align-items: flex-start;
     gap: 16px;
     padding-bottom: 48px;
+    max-width: 720px;
 }
 
 .fc-badge {
@@ -114,6 +115,37 @@
     margin: 0;
 }
 
+.fc-hero-stats {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 8px;
+}
+.fc-hero-stats div {
+    min-width: 0;
+    padding: 12px 10px;
+    border: 1px solid rgba(199, 162, 83, 0.28);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+}
+.fc-hero-stats strong {
+    display: block;
+    color: var(--gold);
+    font-family: var(--font-heading);
+    font-size: clamp(1.15rem, 5vw, 1.7rem);
+    line-height: 1;
+}
+.fc-hero-stats span {
+    display: block;
+    margin-top: 5px;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
 .fc-hero-actions {
     display: flex;
     flex-direction: column;
@@ -122,19 +154,24 @@
     width: 100%;
 }
 
-/* Hero flyer image — full natural size below text on mobile */
+/* Hero flyer image — readable invite card, not a cropped decoration */
 .fc-hero-flyer {
     position: relative;
     z-index: 2;
     width: 100%;
+    padding: 0 16px 18px;
+    background: linear-gradient(180deg, rgba(44, 8, 13, 0), rgba(44, 8, 13, 0.62));
 }
 .fc-hero-flyer img {
     width: 100%;
     height: auto;
     display: block;
-    aspect-ratio: 1/1;
-    object-fit: cover;
+    aspect-ratio: 2/3;
+    object-fit: contain;
     object-position: top center;
+    border-radius: 12px;
+    background: #2c080d;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.32);
 }
 
 /* ============================================================
@@ -197,8 +234,17 @@
     border-color: rgba(199, 162, 83, 0.35);
 }
 .fc-info-icon {
-    font-size: 1.5rem;
-    text-align: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: rgba(199, 162, 83, 0.15);
+    color: #8a6728;
+    border: 1px solid rgba(199, 162, 83, 0.35);
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 700;
     line-height: 1;
 }
 .fc-info-card strong { display: block; font-weight: 900; color: var(--espresso); font-size: 0.95rem; }
@@ -232,7 +278,19 @@
     gap: 12px;
     align-items: start;
 }
-.fc-include-icon { font-size: 1.3rem; text-align: center; padding-top: 2px; }
+.fc-include-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: rgba(199, 162, 83, 0.12);
+    color: var(--gold);
+    border: 1px solid rgba(199, 162, 83, 0.28);
+    font-family: var(--font-heading);
+    font-size: 0.72rem;
+    font-weight: 700;
+}
 .fc-include-list strong { display: block; color: #fff; font-size: 0.95rem; font-weight: 900; }
 .fc-include-list span { display: block; color: rgba(255, 255, 255, 0.58); font-size: 0.82rem; margin-top: 2px; }
 
@@ -254,7 +312,436 @@
 .fc-cite { color: var(--gold); font-weight: 900; font-size: 0.9rem; }
 
 /* ============================================================
-   HOW TO JOIN — STEPS
+   BOOKING & PAYMENT
+   ============================================================ */
+.fc-booking {
+    padding: 72px 0;
+    background:
+        linear-gradient(160deg, rgba(26, 10, 6, 0.94), rgba(60, 24, 16, 0.94)),
+        url('../images/family-gallery/family-gallery-09.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+.fc-booking .section-title {
+    color: #fff;
+}
+.fc-booking .section-kicker {
+    color: rgba(199, 162, 83, 0.9);
+}
+.fc-booking .section-lede {
+    color: rgba(255, 255, 255, 0.76);
+}
+.fc-booking-grid {
+    display: grid;
+    gap: 32px;
+    align-items: start;
+}
+.fc-payment-note {
+    display: grid;
+    gap: 6px;
+    margin-top: 24px;
+    padding: 18px;
+    border: 1px solid rgba(199, 162, 83, 0.36);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.08);
+}
+.fc-payment-note strong {
+    display: block;
+    color: var(--gold);
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    line-height: 1;
+}
+.fc-payment-note span {
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+.fc-after-pay {
+    margin-top: 0;
+    padding: 22px;
+    border-radius: var(--radius);
+    background: rgba(0, 0, 0, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.fc-after-pay h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 0 0 12px;
+}
+.fc-after-pay ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+}
+.fc-after-pay li {
+    position: relative;
+    padding-left: 22px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.94rem;
+    line-height: 1.5;
+}
+.fc-after-pay li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+}
+.fc-booking-form {
+    padding: 22px 18px;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.11);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+}
+.fc-field {
+    margin-bottom: 18px;
+}
+.fc-field label {
+    display: block;
+    margin-bottom: 8px;
+    color: rgba(238, 213, 162, 0.95);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+.fc-field input {
+    width: 100%;
+    min-height: 48px;
+    padding: 13px 15px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    background: rgba(255, 255, 255, 0.94);
+    color: var(--ink);
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.fc-field input:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(199, 162, 83, 0.28);
+}
+.fc-err {
+    display: none;
+    margin-top: 7px;
+    color: #ffd9d9;
+    font-size: 0.82rem;
+    line-height: 1.45;
+}
+.fc-field.invalid input {
+    border-color: #ff9d9d;
+}
+.fc-field.invalid .fc-err {
+    display: block;
+}
+.fc-stepper {
+    width: min(100%, 248px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.94);
+}
+.fc-stepper button {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--espresso);
+    color: #fff;
+    font-size: 1.35rem;
+    line-height: 1;
+    transition: transform 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+}
+.fc-stepper button:hover {
+    background: #241713;
+    transform: scale(1.05);
+}
+.fc-stepper button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none;
+}
+.fc-count {
+    color: var(--espresso);
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
+    min-width: 36px;
+    text-align: center;
+}
+.fc-total-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 10px 0 22px;
+    padding-top: 18px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.3);
+}
+.fc-total-row > span {
+    color: rgba(238, 213, 162, 0.95);
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+.fc-total-row strong {
+    color: #fff;
+    font-family: var(--font-heading);
+    font-size: clamp(1.55rem, 6vw, 2.1rem);
+    line-height: 1;
+    white-space: nowrap;
+}
+.fc-total-row small {
+    color: rgba(238, 213, 162, 0.9);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+}
+.fc-segmented {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.fc-segmented button {
+    min-height: 46px;
+    padding: 10px 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 0.82rem;
+    font-weight: 900;
+    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+.fc-segmented button.active {
+    border-color: transparent;
+    background: linear-gradient(135deg, #e6cd97, var(--gold) 60%, #a07833);
+    color: #1a0e06;
+    box-shadow: 0 10px 28px rgba(199, 162, 83, 0.34);
+}
+.fc-momo-card {
+    display: grid;
+    gap: 10px;
+    margin: -2px 0 18px;
+    padding: 14px;
+    border-radius: var(--radius);
+    border: 1px solid rgba(199, 162, 83, 0.4);
+    background: rgba(0, 0, 0, 0.2);
+}
+.fc-momo-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 13px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+}
+.fc-momo-row span {
+    color: rgba(238, 213, 162, 0.92);
+    font-size: 0.74rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+.fc-momo-row strong {
+    color: #fff;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+}
+.fc-copy-btn {
+    width: fit-content;
+    min-height: 36px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(199, 162, 83, 0.5);
+    background: rgba(199, 162, 83, 0.16);
+    color: #e6cd97;
+    font-size: 0.74rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+.fc-copy-btn:hover,
+.fc-copy-btn.copied {
+    background: var(--gold);
+    color: #1a0e06;
+}
+.fc-submit-btn {
+    width: 100%;
+    min-height: 54px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 4px;
+    padding: 15px 18px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #e6cd97, var(--gold) 58%, #a07833);
+    color: #1a0e06;
+    box-shadow: 0 12px 34px rgba(199, 162, 83, 0.38);
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.fc-submit-btn:hover {
+    transform: translateY(-2px);
+}
+.fc-submit-btn:disabled {
+    opacity: 0.75;
+    cursor: wait;
+    transform: none;
+}
+.fc-spinner {
+    display: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2.5px solid rgba(26, 14, 6, 0.28);
+    border-top-color: #1a0e06;
+    animation: fc-spin 0.8s linear infinite;
+}
+.fc-spinner.show {
+    display: inline-block;
+}
+@keyframes fc-spin {
+    to { transform: rotate(360deg); }
+}
+.fc-form-note {
+    margin-top: 14px;
+    color: rgba(255, 255, 255, 0.58);
+    font-size: 0.82rem;
+    line-height: 1.45;
+    text-align: center;
+}
+
+/* ============================================================
+   MERCH & EXTRAS
+   ============================================================ */
+.fc-merch {
+    padding: 72px 0;
+    background:
+        linear-gradient(180deg, #fffaf3 0%, #f7f0e6 100%);
+}
+.fc-merch-head {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 30px;
+}
+.fc-merch-head .section-title {
+    margin-top: 8px;
+}
+.fc-merch-head .section-lede {
+    max-width: 680px;
+}
+.fc-merch-feature {
+    display: grid;
+    gap: 0;
+    overflow: hidden;
+    border: 1px solid rgba(199, 162, 83, 0.26);
+    border-radius: var(--radius);
+    background: #1a0a06;
+    box-shadow: 0 18px 48px rgba(60, 33, 27, 0.14);
+}
+.fc-merch-feature img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center;
+    background: #241713;
+}
+.fc-merch-feature-copy {
+    display: grid;
+    gap: 14px;
+    padding: 24px 20px;
+    color: #fff;
+}
+.fc-merch-label {
+    width: fit-content;
+    padding: 5px 11px;
+    border-radius: 999px;
+    border: 1px solid rgba(199, 162, 83, 0.45);
+    color: rgba(238, 213, 162, 0.96);
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+.fc-merch-feature h3 {
+    color: #fff;
+    font-size: clamp(1.55rem, 6vw, 2.4rem);
+}
+.fc-merch-feature p {
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.65;
+}
+.fc-merch-actions {
+    display: grid;
+    gap: 10px;
+    margin-top: 4px;
+}
+.fc-merch-feature .btn-outline {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.34);
+}
+.fc-merch-grid {
+    display: grid;
+    gap: 14px;
+    margin-top: 18px;
+}
+.fc-merch-card {
+    display: grid;
+    grid-template-columns: 104px 1fr;
+    gap: 14px;
+    align-items: center;
+    min-height: 136px;
+    padding: 14px;
+    border: 1px solid rgba(60, 33, 27, 0.1);
+    border-radius: var(--radius);
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+}
+.fc-merch-card img {
+    width: 104px;
+    height: 104px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #f1eadf;
+}
+.fc-merch-card span {
+    display: block;
+    margin-bottom: 4px;
+    color: #8a6728;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+.fc-merch-card h3 {
+    margin: 0 0 5px;
+    font-size: 1.08rem;
+}
+.fc-merch-card p {
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.45;
+}
+
+/* ============================================================
+   HOW TO JOIN - STEPS
    ============================================================ */
 .fc-step {
     background: var(--white);
@@ -281,6 +768,87 @@
 }
 .fc-step h3 { font-size: 1.2rem; margin-bottom: 10px; }
 .fc-step p { color: var(--muted); font-size: 0.92rem; }
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.fc-faq {
+    background: var(--linen);
+    padding: 72px 0;
+}
+.fc-faq-list {
+    display: grid;
+    gap: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.fc-accordion {
+    overflow: hidden;
+    border: 1px solid rgba(199, 162, 83, 0.24);
+    border-radius: var(--radius);
+    background: var(--white);
+    box-shadow: 0 8px 30px rgba(60, 33, 27, 0.08);
+}
+.fc-accordion-q {
+    width: 100%;
+    min-height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 17px 18px;
+    color: var(--espresso);
+    text-align: left;
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    line-height: 1.3;
+}
+.fc-plus {
+    position: relative;
+    flex: 0 0 22px;
+    width: 22px;
+    height: 22px;
+}
+.fc-plus::before,
+.fc-plus::after {
+    content: "";
+    position: absolute;
+    border-radius: 2px;
+    background: var(--gold);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.fc-plus::before {
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 2px;
+    transform: translateY(-50%);
+}
+.fc-plus::after {
+    left: 50%;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    transform: translateX(-50%);
+}
+.fc-accordion.open .fc-plus::after {
+    opacity: 0;
+    transform: translateX(-50%) rotate(90deg);
+}
+.fc-accordion-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+.fc-accordion-a p {
+    padding: 0 18px 18px;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+.fc-accordion.open .fc-accordion-a {
+    max-height: 220px;
+}
 
 /* ============================================================
    FINAL CTA
@@ -401,8 +969,39 @@
 @media (min-width: 640px) {
     .fc-hero-actions { flex-direction: row; }
     .fc-cta-actions { flex-direction: row; align-items: center; }
-    .fc-hero-inner { flex-direction: row; align-items: center; }
-    .fc-hero-flyer { max-width: 420px; margin: 0 auto; }
+    .fc-hero-inner { flex-direction: column; align-items: flex-start; }
+    .fc-hero-flyer { max-width: 460px; margin: 0 auto; }
+    .fc-booking-form { padding: 28px; }
+    .fc-momo-row {
+        grid-template-columns: 1fr auto auto;
+        align-items: center;
+    }
+    .fc-merch-feature {
+        grid-template-columns: 0.95fr 1.05fr;
+        align-items: stretch;
+    }
+    .fc-merch-feature img {
+        height: 100%;
+        min-height: 360px;
+        aspect-ratio: auto;
+    }
+    .fc-merch-actions {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .fc-merch-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .fc-merch-card {
+        grid-template-columns: 1fr;
+        align-items: start;
+        min-height: 0;
+    }
+    .fc-merch-card img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
     .fc-promo-inner { grid-template-columns: 1fr 1fr; align-items: center; }
     .fc-promo-text { padding: 52px 0; }
     .fc-promo-actions { flex-direction: row; }
@@ -423,16 +1022,173 @@
         flex: 0 0 42%;
         max-width: 42%;
         align-self: stretch;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 28px 28px 28px 0;
+        background: transparent;
     }
     .fc-hero-flyer img {
-        height: 100%;
-        aspect-ratio: auto;
-        min-height: 600px;
-        object-fit: cover;
+        width: min(100%, 430px);
+        height: auto;
+        max-height: calc(100vh - 132px);
+        min-height: 0;
+        aspect-ratio: 2/3;
+        object-fit: contain;
         object-position: top center;
     }
     .fc-details-grid { grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .fc-booking-grid { grid-template-columns: 0.9fr 1.1fr; gap: 48px; }
+    .fc-booking-copy { position: sticky; top: 100px; }
+    .fc-booking-form { grid-column: 2; grid-row: 1 / span 2; }
+    .fc-after-pay { grid-column: 1; grid-row: 2; }
+    .fc-merch-head {
+        grid-template-columns: 1fr 0.85fr;
+        align-items: end;
+        margin-bottom: 36px;
+    }
+    .fc-merch-feature-copy {
+        padding: 42px;
+        align-content: center;
+    }
     .fc-final-inner { flex-direction: row; align-items: center; justify-content: space-between; }
     .fc-cta-actions { flex-direction: column; align-items: flex-end; gap: 12px; }
     .fc-promo-image { aspect-ratio: 3/4; max-height: 560px; }
+}
+
+@media (max-width: 639px) {
+    .fc-hero {
+        padding-top: 44px;
+    }
+    .fc-hero-inner {
+        gap: 14px;
+        padding-bottom: 34px;
+    }
+    .fc-badge {
+        max-width: 100%;
+        white-space: normal;
+        line-height: 1.35;
+    }
+    .fc-title {
+        font-size: clamp(2.35rem, 15vw, 3.1rem);
+    }
+    .fc-hero-actions {
+        gap: 10px;
+        margin-top: 4px;
+    }
+    .fc-hero-stats {
+        gap: 7px;
+    }
+    .fc-hero-stats div {
+        padding: 11px 9px;
+    }
+    .fc-hero-stats strong {
+        font-size: clamp(1.12rem, 6vw, 1.5rem);
+    }
+    .fc-hero-flyer {
+        padding: 0 16px 16px;
+    }
+}
+
+@media (max-width: 360px) {
+    .fc-merch-card {
+        grid-template-columns: 88px 1fr;
+        gap: 12px;
+        padding: 12px;
+    }
+    .fc-merch-card img {
+        width: 88px;
+        height: 88px;
+    }
+}
+
+/* ============================================================
+   GALLERY
+   ============================================================ */
+.fc-gallery {
+    background: #fbf7ef;
+    padding: 72px 0;
+}
+.fc-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+.fc-gallery-item {
+    position: relative;
+    display: block;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 1 / 1;
+    background: #eee2c9;
+}
+.fc-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+.fc-gallery-item:hover img {
+    transform: scale(1.06);
+}
+.fc-gallery-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(26,14,6,0) 60%, rgba(26,14,6,0.35) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.fc-gallery-item:hover::after {
+    opacity: 1;
+}
+
+@media (min-width: 640px) {
+    .fc-gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+}
+@media (min-width: 1024px) {
+    .fc-gallery-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+}
+
+/* Lightbox */
+.fc-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(10, 6, 3, 0.92);
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+.fc-lightbox.active {
+    display: flex;
+}
+.fc-lightbox img {
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.fc-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    font-size: 28px;
+    line-height: 1;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.fc-lightbox-close:hover {
+    background: rgba(255,255,255,0.22);
 }
